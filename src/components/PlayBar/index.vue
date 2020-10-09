@@ -1,19 +1,19 @@
 <template>
   <div class="player">
     <div class="first-bar">
-      <div class="thumbnail">
+      <div class="thumbnail" v-if="current_song.album">
         <div class="image">
           <img
-            src="https://p2.music.126.net/egJvDzDxh8YpvsLQ31gjkg==/109951163938237058.jpg"
+            v-lazy="thumbnailImgUrl"
             alt=""
           />
         </div>
         <div class="info">
           <span class="name"
-            >smallSongName
+            >{{thumbnailName}}
             <BasicIcon type="icon-fabulous" />
           </span>
-          <span class="author">smallauthor</span>
+          <Artists :artists="thumbnailAuthor" class="author"></Artists>
         </div>
       </div>
     </div>
@@ -91,12 +91,15 @@
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 import { playMode } from "config/config";
 import { getUrl } from "utils/song";
+
+import Artists from "components/Common/artists"
 import BasicIcon from "components/BasicIcon";
 import ProgressSlider from "components/Common/progressSlider";
 
 import { shuffle } from "utils/calculate.js";
 export default {
   components: {
+    Artists,
     BasicIcon,
     ProgressSlider,
   },
@@ -156,6 +159,15 @@ export default {
     },
     bufferedPercent() {
       return this.buffered / this.current_song.duration;
+    },
+    thumbnailImgUrl(){
+      return this.current_song.album ? this.current_song.album.blurPicUrl : '';
+    },
+    thumbnailName(){
+      return this.current_song.album ? this.current_song.album.name : '';
+    },
+    thumbnailAuthor(){
+      return this.current_song.album ? this.current_song.album.artists : [];
     },
     disableCls() {
       return this.isSongReady ? "" : "disable";

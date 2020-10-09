@@ -123,8 +123,6 @@ export default {
     this.$nextTick(() => {
       this.sliderDomList = this.$refs.slider;
     });
-    console.log(this.width);
-    console.log(this.height);
   },
   methods: {
     setClass(i) {
