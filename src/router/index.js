@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/store/index.js'
-import { recommendRoutes } from './modules/recommend'
-import { playlistRoutes } from './modules/playlist'
+import { homeRoutes } from './modules/home'
 
 Vue.use(Router)
 
@@ -12,8 +11,7 @@ const routes = [
     component: () => import('layouts/BasicLayout.vue'),
     redirect: '/index',
     children: [
-      ...recommendRoutes,
-      ...playlistRoutes,
+      ...homeRoutes,
     ]
   },
 ]

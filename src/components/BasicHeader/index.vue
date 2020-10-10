@@ -61,7 +61,7 @@ export default {
     .top-bar-control {
       margin-right: 5px;
       -webkit-app-region: no-drag;
-      /deep/ .ant-btn {
+      @{deep} .ant-btn {
         height: 24px;
         line-height: 22px;
       }

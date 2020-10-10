@@ -1,14 +1,7 @@
 let recommendRoutes = [
   {
-    path: '/home',
-    component: () => import(/* webpackChunkName: "home" */ 'layouts/HomeLayout.vue'),
-    name: 'home',
-    children: [
-      {
-        path: '/index',
-        component: () => import(/* webpackChunkName: "index" */ 'views/Index/index.vue'),
-      }
-    ]
+    path: '/index',
+    component: () => import(/* webpackChunkName: "index" */ 'views/Index/index.vue'),
   },
   // {
   //   path: '/private_fm',

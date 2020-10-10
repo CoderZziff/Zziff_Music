@@ -34,7 +34,7 @@ export default {
   position: relative;
   background: #ffffff;
   border-right: 1px solid #e1e1e1;
-  /deep/ .ant-menu {
+  @{deep} .ant-menu {
     border: none;
   }
 }

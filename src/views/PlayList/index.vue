@@ -122,7 +122,6 @@ export default {
       this.total = res.total;
     },
     onPageChange(page, pageSize) {
-      console.log(page, pageSize);
       this.options.offset = (page - 1) * pageSize;
       this.getPlaylist();
     },

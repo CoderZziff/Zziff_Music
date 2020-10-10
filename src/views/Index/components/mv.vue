@@ -46,7 +46,7 @@ export default {
     margin-left: @gutter;
     margin-right: @gutter;
     &:hover {
-      /deep/ .top {
+      @{deep} .top {
         display: none;
       }
       .copywriter {

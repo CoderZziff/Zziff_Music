@@ -77,7 +77,7 @@ export default {
       .copywriter {
         transform: translateY(0);
       }
-      /deep/ .top {
+      @{deep} .top {
         display: none;
       }
     }

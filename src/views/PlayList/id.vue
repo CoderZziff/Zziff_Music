@@ -57,11 +57,11 @@
         <ul class="action">
           <li class="action-item">
             <div>歌曲数</div>
-            <strong>{{playlist.trackCount}}</strong>
+            <strong>{{playlist.trackCount | toWan}}</strong>
           </li>
           <li class="action-item">
             <div>播放数</div>
-            <strong>{{playlist.playCount}}</strong>
+            <strong>{{playlist.playCount | toWan}}</strong>
           </li>
         </ul>
       </a-list-item>

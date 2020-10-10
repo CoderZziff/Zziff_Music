@@ -24,7 +24,7 @@ export default {
 
 <style lang="less" scoped>
 .header-search {
-  /deep/ .ant-input {
+  @{deep} .ant-input {
     height: 24px;
     border-radius: 12px;
     background: rgba(0, 0, 0, 0.2);
@@ -33,7 +33,7 @@ export default {
     box-shadow: none;
     font-size: 12px;
   }
-  /deep/ .ant-input-search-icon {
+  @{deep} .ant-input-search-icon {
     color: rgba(255, 255, 255, 0.6) !important;
   }
 }
