@@ -29,7 +29,6 @@ export default {
   bottom: 75px;
   left: 0;
   right: 0;
-  min-height: calc(100vh - 135px);
 }
 .basic-layout-sider {
   position: relative;

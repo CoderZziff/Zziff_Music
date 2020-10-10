@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/store/index.js'
 import { recommendRoutes } from './modules/recommend'
+import { playlistRoutes } from './modules/playlist'
 
 Vue.use(Router)
 
@@ -12,6 +13,7 @@ const routes = [
     redirect: '/index',
     children: [
       ...recommendRoutes,
+      ...playlistRoutes,
     ]
   },
 ]

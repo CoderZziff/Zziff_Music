@@ -38,8 +38,8 @@ export default {
     return {
       recommendList: [
         {
-          path: "/home",
-          name: "home",
+          path: "/index",
+          name: "index",
           meta: {
             title: "发现音乐",
           },

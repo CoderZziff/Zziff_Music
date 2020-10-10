@@ -1,5 +1,3 @@
 import { get } from 'utils/request.js'
 
-export function getPrivateContent () {
-  return get('/personalized/privatecontent')
-}
+export const getPrivateContent = () => get('/personalized/privatecontent')

@@ -1,49 +1,26 @@
 import { get } from 'utils/request.js'
 
-export function getPlaylistComment (id, limit = 20, offset = 0) {
-  return get('/comment/playlist', {
-    params: {
-      id, limit, offset
-    }
-  })
-}
+export const getPlaylistComment = (id, limit = 20, offset = 0) => get("/comment/playlist", {
+  id, limit, offset
+})
 
-export function getAlbumComment (id, limit = 20, offset = 0) {
-  return get('/comment/album', {
-    params: {
-      id, limit, offset
-    }
-  })
-}
+export const getAlbumComment = (id, limit = 20, offset = 0) => get("/comment/album", {
+  id, limit, offset
+})
 
-export function getMVComment (id, limit = 20, offset = 0) {
-  return get('/comment/mv', {
-    params: {
-      id, limit, offset
-    }
-  })
-}
+export const getMVComment = (id, limit = 20, offset = 0) => get("/comment/mv", {
+  id, limit, offset
+})
 
-export function getVideoComment (id, limit = 20, offset = 0) {
-  return get('/comment/video', {
-    params: {
-      id, limit, offset
-    }
-  })
-}
+export const getVideoComment = (id, limit = 20, offset = 0) => get("/comment/video", {
+  id, limit, offset
+})
 
-export function getSongComment (id, limit = 20, offset = 0, before = '') {
-  return get('/comment/music', {
-    params: {
-      id, limit, offset, before
-    }
-  })
-}
+export const getSongComment = (id, limit = 20, offset = 0, before = '') => get("/comment/music", {
+  id, limit, offset, before
+})
 
-export function getDjComment (id, limit = 20, offset = 0, before = '') {
-  return get('/comment/dj', {
-    params: {
-      id, limit, offset, before
-    }
-  })
-}
+
+export const getDjComment = (id, limit = 20, offset = 0, before = '') => get("/comment/dj", {
+  id, limit, offset, before
+})

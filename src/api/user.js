@@ -1,148 +1,90 @@
 import { get } from 'utils/request.js'
 
-export function login_cellphone (params) {
-  return get('/login/cellphone', {
-    params
-  })
-}
+export const login_cellphone = (params) => get('/login/cellphone', {
+  params
+})
 
 // type: 签到类型 , 默认 0, 其中 0 为安卓端签到 ,1 为 web/PC 签到
-export function daily_signin (type) {
-  return get('/daily_signin', {
-    params: {
-      type
-    }
-  })
-}
+export const daily_signine = (type) => get('/daily_signi', {
+  type
+})
 
 // 用户详情
-export function user_detail (uid) {
-  return get('/user/detail', {
-    params: {
-      uid,
-      _: new Date().getTime()
-    }
-  })
-}
+export const user_detail = (uid) => get('/user/detail', {
+  uid,
+  _: new Date().getTime()
+})
 
 // 获取用户信息 , 歌单，收藏，mv, dj 数量
-export function user_subcount (uid) {
-  return get('/user/subcount', {
-    params: {
-      uid,
-      _: new Date().getTime()
-    }
-  })
-}
+export const user_subcount = (uid) => get('/user/subcount', {
+  uid,
+  _: new Date().getTime()
+})
 
 // 获取用户私信
-export function user_msg_private ({ limit = 10, offset = 0 }) {
-  return get('/msg/private', {
-    params: { limit, offset }
-  })
-}
+export const user_msg_private = ({ limit = 10, offset = 0 }) => get('/msg/private', {
+  imit, offset
+})
 
 // 获取用户关注列表
-export function user_follower ({ uid, limit = 10, offset = 0 }) {
-  return get('/user/follows', {
-    params: { uid, limit, offset }
-  })
-}
+export const user_follower = ({ uid, limit = 10, offset = 0 }) => get('/user/follows', {
+  uid, limit, offset
+})
 
 // 获取用户粉丝列表
-export function user_followed ({ uid, limit = 10, lasttime = -1 }) {
-  return get('/user/followeds', {
-    params: { uid, limit, lasttime }
-  })
-}
+export const user_followed = ({ uid, limit = 10, lasttime = -1 }) => get('/user/followeds', {
+  uid, limit, lasttime
+})
 
 // 关注/取消关注用户
-export function user_follow ({ t, id }) {
-  return get('/follow', {
-    params: { t, id }
-  })
-}
+export const user_follow = ({ t, id }) => get('/follow', {
+  t, id
+})
 
 // 获取用户歌单
-export function getUserPlaylist (uid) {
-  let params = {
-    uid,
-    limit: 10000
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    params.timestamp = new Date().getTime()
-  }
-  return get('/user/playlist', {
-    params
-  })
-}
+export const getUserPlaylist = (uid, limit = 10000) => get('/user/playlist', {
+  uid, limit
+})
 
-export function getUserCloud (uid) {
-  return get('/user/cloud', {
-    params: {
-      uid
-    }
-  })
-}
+export const getUserCloud = (uid) => get('/user/cloud', {
+  uid
+})
 
 // 获取用户喜欢歌曲列表
-export function getUserLikeSongs (uid) {
-  let params = {
-    uid
-  }
-  if (process.env.NODE_ENV === 'production') {
-    params.timestamp = new Date().getTime()
-  }
-  return get('/likelist', {
-    params
-  })
-}
+export const getUserLikeSongs = (uid) => get('/likelist', {
+  uid,
+  timestamp: new Date().getTime()
+})
 
 // 喜欢音乐
-export function likeMusic (musicId, isLike) {
-  return get('/like', {
-    params: {
-      id: musicId,
-      like: isLike
-    }
-  })
-}
+export const likeMusic = (musicId, isLike) => get('/like', {
+  id: musicId,
+  like: isLike
+})
 
 // 收藏专辑 t  1:收藏,2:取消收藏
-export function subAlbum ({ t, id }) {
-  return get('/album/sub', {
-    params: {
-      t,
-      id
-    }
-  })
-}
+export const subAlbum = ({ t, id }) => get('/album/sub', {
+  t,
+  id
+})
 
 // 收藏歌单 t  1:收藏,2:取消收藏
-export function likePlaylist (t, pid) {
-  return get('/playlist/subscribe', {
-    params: {
-      t,
-      id: pid
-    }
-  })
-}
+export const likePlaylist = (t, pid) => get('/playlist/subscribe', {
+  t,
+  id: pid
+})
 
 // 删除创建的歌单
-export function deletePlaylist (id) {
-  return get('/playlist/delete', {
-    params: {
-      id
-    }
-  })
-}
+export const deletePlaylist = (id) => get('/playlist/delete', {
+  id
+})
 
 /**
  * 新建歌单
  * @param {*歌单名} name
  * @param {*privacy : 是否设置为隐私歌单，默认否，传'10'则设置成隐私歌单} privacy
  */
-export function createPlaylist ({ name, privacy }) {
+export const createPlaylist = ({ name, privacy }) => {
   let params = {
     name
   }
@@ -155,64 +97,37 @@ export function createPlaylist ({ name, privacy }) {
 }
 
 // 对歌单添加或删除歌曲
-export function addSongToList ({ op, tracks, pid }) {
-  return get('/playlist/tracks', {
-    params: {
-      op, tracks, pid
-    }
-  })
-}
+export const addSongToList = ({ op, tracks, pid }) => get('/playlist/tracks', {
+  op, tracks, pid
+})
 
 // 私人fm
-export function getFm () {
-  return get('/personal_fm?_=' + new Date().getTime())
-}
+export const getFm = () => get('/personal_fm?_=' + new Date().getTime())
 
 // 每日推荐歌曲
-export function getRecommendSongs () {
-  return get('/recommend/songs')
-}
+export const getRecommendSongs = () => get('/personal_fm?_=' + new Date().getTime())
+
 
 // 用户动态
-export function getUserEvent ({ uid, limit = 30, lasttime = -1 }) {
-  return get('/user/event', {
-    params: {
-      uid, limit, lasttime
-    }
-  })
-}
+export const getUserEvent = ({ uid, limit = 30, lasttime = -1 }) => get('/user/event',{
+  uid, limit, lasttime
+})
 
 // 动态
-export function getEvent ({ pagesize = 30, lasttime = -1 }) {
-  return get('/event', {
-    params: {
-      pagesize, lasttime
-    }
-  })
-}
+export const getEvent = ({ pagesize = 30, lasttime = -1 }) => get('/event',{
+  pagesize, lasttime
+})
 
 // 订阅电台 1订阅,0订阅
-export function subDj ({ t, rid }) {
-  return get('/dj/sub', {
-    params: {
-      t, rid
-    }
-  })
-}
+export const subDj = ({ t, rid }) => get('/dj/sub',{
+  t, rid
+})
 
 // 收藏歌手 1为收藏,其他取消订阅
-export function subArtist ({ t, id }) {
-  return get('/artist/sub', {
-    params: {
-      t, id
-    }
-  })
-}
+export const subArtist = ({ t, id }) => get('/artist/sub',{
+  t, id
+})
 
-export function getHotTopic ({ limit = 30, offset = 0 }) {
-  return get('/hot/topic', {
-    params: {
-      limit, offset
-    }
-  })
-}
+export const getHotTopic = ({ limit = 30, offset = 0 }) => get('/hot/topic',{
+  limit, offset
+})

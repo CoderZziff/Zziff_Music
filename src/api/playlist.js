@@ -1,74 +1,52 @@
 import { get } from 'utils/request.js'
 
-export function getPlaylistTags () {
-  return get('/playlist/hot')
-}
+export const getPlaylistTags = () => get("/playlist/hot")
 
-export function getUserPlaylist (uid) {
-  return get('/user/playlist', {
-    params: {
-      uid
-    }
+export const getUserPlaylist = (uid) => get("/user/playlist", {
+  uid
+})
+
+
+export const getPlaylistDetail = id => get("/playlist/detail",
+  {
+    id: id,
+    _: new Date().getTime()
   })
-}
 
-export function getPlaylistDetail (id) {
-  return get('/playlist/detail', {
-    params: {
-      id,
-      _: new Date().getTime()
-    }
+
+
+export const getPlaylistCatlist = () => get("/playlist/catlist")
+
+export const getPersonalizedPlaylist = () => get("/personalized")
+
+
+export const getTopPlaylist = ({ cat = '全部', limit = 10, offset = 0, order = 'new' }) => get("/top/playlist",
+  {
+    cat,
+    limit,
+    offset,
+    order
   })
-}
 
-export function getPlaylistCatlist () {
-  return get('/playlist/catlist')
-}
 
-export function getPersonalizedPlaylist () {
-  return get('/personalized')
-}
-
-export function getTopPlaylist ({ cat = '全部', limit = 10, offset = 0, order = 'new' }) {
-  return get('/top/playlist', {
-    params: {
-      cat,
-      limit,
-      offset,
-      order
-    }
-  })
-}
 
 // 精品歌单 before: 分页参数,取上一页最后一个歌单的 updateTime 获取下一页数据
-export function getHighPlaylist ({ cat = '全部', limit = 20, before = '' }) {
-  return get('/top/playlist/highquality', {
-    params: {
-      cat,
-      limit,
-      before
-    }
+export const getHighPlaylist = ({ cat = '全部', limit = 20, before = '' }) => get("/top/playlist/highquality",
+  {
+    cat,
+    limit,
+    before
   })
-}
 
-export function getRelatedPlaylist (id) {
-  return get('/related/playlist', {
-    params: {
-      id
-    }
+export const getRelatedPlaylist = id => get("/related/playlist",
+  {
+    id
   })
-}
 
-export function getRecommendPlaylist () {
-  return get('/personalized')
-}
+export const getRecommendPlaylist = () => get('/personalized')
 
-export function getPlaylistSubscribers ({ limit = 20, offset = 0, id }) {
-  return get('/playlist/subscribers', {
-    params: {
-      id,
-      limit,
-      offset
-    }
-  })
-}
+export const getPlaylistSubscribers = ({ limit = 20, offset = 0, id }) => get('/playlist/subscribers',{
+  id,
+  limit,
+  offset
+})

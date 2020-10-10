@@ -25,7 +25,7 @@ export default {
         return [
           {
             title: "个性推荐",
-            href: "/home",
+            href: "/index",
           },
           {
             title: "歌单",
