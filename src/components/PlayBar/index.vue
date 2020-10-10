@@ -1,21 +1,7 @@
 <template>
   <div class="player">
     <div class="first-bar">
-      <div class="thumbnail" v-if="current_song.album">
-        <div class="image">
-          <img
-            v-lazy="thumbnailImgUrl"
-            alt=""
-          />
-        </div>
-        <div class="info">
-          <span class="name"
-            >{{thumbnailName}}
-            <BasicIcon type="icon-fabulous" />
-          </span>
-          <Artists :artists="thumbnailAuthor" class="author"></Artists>
-        </div>
-      </div>
+      <MiniCard/>
     </div>
     <div class="second-bar">
       <div class="state-control">
@@ -36,13 +22,13 @@
         </a-button>
       </div>
       <div class="progress-control">
-        <time class="time">{{currentTime | duration}}</time>
+        <time class="time">{{ currentTime | duration }}</time>
         <ProgressSlider
           class="progress-slider"
           :percent="percent"
           @change="onpercentChanged"
         ></ProgressSlider>
-        <time class="time">{{current_song.duration | duration}}</time>
+        <time class="time">{{ current_song.duration | duration }}</time>
       </div>
     </div>
     <div class="third-bar">
@@ -59,10 +45,10 @@
           <a-button type="link" size="large">
             <BasicIcon type="icon-shengyin"></BasicIcon>
           </a-button>
-          <ProgressSlider 
-          class="progress-volume"
-          :percent="0.5"
-          @change="onvolumeChanged"
+          <ProgressSlider
+            class="progress-volume"
+            :percent="0.5"
+            @change="onvolumeChanged"
           ></ProgressSlider>
           <audio
             crossOrigin="anonymous"
@@ -92,14 +78,14 @@ import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 import { playMode } from "config/config";
 import { getUrl } from "utils/song";
 
-import Artists from "components/Common/artists"
+import MiniCard from "components/Common/MiniCard"
 import BasicIcon from "components/BasicIcon";
 import ProgressSlider from "components/Common/progressSlider";
 
 import { shuffle } from "utils/calculate.js";
 export default {
   components: {
-    Artists,
+    MiniCard,
     BasicIcon,
     ProgressSlider,
   },
@@ -159,15 +145,6 @@ export default {
     },
     bufferedPercent() {
       return this.buffered / this.current_song.duration;
-    },
-    thumbnailImgUrl(){
-      return this.current_song.album ? this.current_song.album.blurPicUrl : '';
-    },
-    thumbnailName(){
-      return this.current_song.album ? this.current_song.album.name : '';
-    },
-    thumbnailAuthor(){
-      return this.current_song.album ? this.current_song.album.artists : [];
     },
     disableCls() {
       return this.isSongReady ? "" : "disable";
@@ -389,38 +366,6 @@ export default {
 <style lang="less" scoped>
 .player {
   display: flex;
-}
-.first-bar {
-  .thumbnail {
-    display: flex;
-    align-items: center;
-    .image {
-      margin-right: 12px;
-      img {
-        cursor: pointer;
-        width: 50px;
-        border-radius: 10%;
-      }
-    }
-    .info {
-      height: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      .name,
-      .author {
-        display: block;
-        cursor: pointer;
-        font-size: 15px;
-        color: #353536;
-        line-height: 100%;
-        width: 180px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-    }
-  }
 }
 .second-bar {
   flex: 1;
