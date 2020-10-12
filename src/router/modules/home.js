@@ -1,5 +1,9 @@
 import { recommendRoutes } from './recommend'
 import { playlistRoutes } from './playlist'
+import { artistRoutes } from './artist'
+import { albumRoutes } from './album'
+import { djRoutes } from './dj'
+import { rankRoutes } from './rank'
 let homeRoutes = [
     {
         path: '/home',
@@ -7,7 +11,11 @@ let homeRoutes = [
         name: 'home',
         children: [
             ...recommendRoutes,
-            ...playlistRoutes
+            ...playlistRoutes,
+            ...artistRoutes,
+            ...albumRoutes,
+            ...djRoutes,
+            ...rankRoutes
         ]
     }]
 export {
