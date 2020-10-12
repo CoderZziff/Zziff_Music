@@ -1,13 +1,13 @@
 {
-  "name": "Zziff_Music",
+  "name": "zziff_music",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "serve": "vue-cli-service serve --mode development",
+    "test": "vue-cli-service build --mode test",
+    "build": "vue-cli-service build --mode production"
   },
   "dependencies": {
-    "animejs": "^3.2.0",
     "ant-design-vue": "^1.6.5",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
