@@ -34,6 +34,9 @@
 <script>
 import BasicIcon from "components/BasicIcon";
 export default {
+  components: {
+    BasicIcon,
+  },
   data() {
     return {
       recommendList: [
@@ -72,7 +75,7 @@ export default {
           name: "music_local",
           meta: {
             title: "本地音乐",
-            icon:"icon-yinfu"
+            icon: "icon-yinfu",
           },
         },
         {
@@ -80,7 +83,7 @@ export default {
           name: "music_download",
           meta: {
             title: "下载管理",
-            icon:"icon-shipinjiankongicon-"
+            icon: "icon-shipinjiankongicon-",
           },
         },
         {
@@ -88,7 +91,7 @@ export default {
           name: "music_cloud",
           meta: {
             title: "我的音乐云盘",
-            icon:"icon-yunpan"
+            icon: "icon-yunpan",
           },
         },
         {
@@ -96,7 +99,7 @@ export default {
           name: "music_broadcast",
           meta: {
             title: "我的电台",
-            icon:"icon-yule_yinlediantai"
+            icon: "icon-yule_yinlediantai",
           },
         },
         {
@@ -104,14 +107,11 @@ export default {
           name: "music_collect",
           meta: {
             title: "我的收藏",
-            icon:"icon-wodeshoucang1"
+            icon: "icon-wodeshoucang1",
           },
         },
       ],
     };
-  },
-  components: {
-    BasicIcon,
   },
 };
 </script>

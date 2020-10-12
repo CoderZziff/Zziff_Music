@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  name: 'AniPlaying',
   props: {
     playing: {
       type: Boolean,

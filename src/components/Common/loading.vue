@@ -1,7 +1,7 @@
 <template>
   <div class="loading-wrapper">
     <slot>
-      <playing />
+      <Playing />
     </slot>
     <div v-if="$slots && $slots.text">
       <slot name="text"></slot>

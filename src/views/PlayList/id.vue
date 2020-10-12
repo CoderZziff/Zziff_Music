@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading v-show="loading" />
+    <Loading v-show="loading" />
     <a-list class="intro">
       <a-list-item v-if="playlist">
         <a-list-item-meta>

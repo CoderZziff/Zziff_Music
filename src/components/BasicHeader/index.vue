@@ -16,13 +16,11 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
-import BasicIcon from 'components/BasicIcon'
 import Controls from './Controls'
 import SearchBox from './SeachBox'
 export default {
   name:"BasicHeader",
   components: {
-    BasicIcon,
     Controls,
     SearchBox,
   },

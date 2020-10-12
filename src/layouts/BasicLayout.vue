@@ -17,24 +17,18 @@
 <script>
 import BasicHeader from "components/BasicHeader";
 import PlayBar from "components/PlayBar";
-import Offline from "components/Offline/index";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
-const SIDER_WIDTH_DEFAULT = 200;
 export default {
   name: "layouts",
   data() {
     return {
       locale: zhCN,
-      refresh: false,
-      keepAliveExcludeList: ["video", "mv", "events"],
-      siderWidth: SIDER_WIDTH_DEFAULT,
     };
   },
   computed: {},
   components: {
     BasicHeader,
     PlayBar,
-    Offline,
   },
   created() {},
   mounted() {},

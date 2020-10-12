@@ -7,7 +7,6 @@ import { Icon } from 'ant-design-vue'
 
 // let iconURL = 'assets/iconfont/icon.js'
 const iconURL = 'https://at.alicdn.com/t/font_2116353_ta3zfntgjag.js'
-// console.log(iconURL)
 
 let BaseIcon = Icon.createFromIconfontCN({
   scriptUrl: iconURL

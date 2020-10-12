@@ -122,7 +122,6 @@ export default {
   left: 50%;
   z-index: 5000;
   display: flex;
-  // flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 80%;
@@ -139,7 +138,7 @@ export default {
     margin-right: 15px;
   }
   .notice-text {
-    // font-size: inherit;
+    font-size: inherit;
   }
 }
 </style>

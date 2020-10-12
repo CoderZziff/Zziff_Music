@@ -208,9 +208,6 @@ export default {
         if (current_song_index < 0) current_song_index = list_len - 1;
       }
       this.$store.commit("play/SET_CURRENT_INDEX", current_song_index);
-      // if (!this.playing) {
-      //   this.$store.commit('play/SET_PLAY_STATUS', true)
-      // }
     },
     togglePlay() {
       if (!this.isSongReady) {
@@ -229,9 +226,6 @@ export default {
         current_song_index = 0;
       }
       this.$store.commit("play/SET_CURRENT_INDEX", current_song_index);
-      // if (!this.playing) {
-      //   this.$store.commit('play/SET_PLAY_STATUS', true)
-      // }
     },
     onPlay() {
       this.isSongReady = true;
@@ -262,7 +256,7 @@ export default {
       if (this.mode === playMode.loop) {
         this.loop();
       } else {
-        this.forward();
+        this.next();
       }
     },
     onWaiting() {

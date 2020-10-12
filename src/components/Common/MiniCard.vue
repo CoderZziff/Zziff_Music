@@ -9,7 +9,7 @@
           {{ current_song.name }}
         </h5>
         <span class="icon-wrapper" v-if="!current_song.folder">
-          <song-heart />
+          <SongHeart />
         </span>
       </header>
       <footer class="info-footer">

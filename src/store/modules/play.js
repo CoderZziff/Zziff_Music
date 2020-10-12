@@ -42,7 +42,6 @@ const state = () => ({
   current_lyric_line: 0, // 当前播放歌词索引
   isMuted: false,
   volume: 0.9,
-  showDesktoplyric: false
 })
 const getters = {
   current_song: state => state.current_play_list[ state.current_song_index ] || {},
@@ -60,12 +59,8 @@ const getters = {
   videoPlaying: state => state.videoPlaying,
   isMuted: state => state.isMuted,
   volume: state => state.volume,
-  showDesktoplyric: state => state.showDesktoplyric
 }
 const mutations = {
-  SET_SHOW_DESKTOP_LYRIC (state, flag) {
-    state.showDesktoplyric = flag
-  },
   SET_CURRENT_PLAY_LIST (state, list) {
     state.current_play_list = list
   },

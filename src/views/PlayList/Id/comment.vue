@@ -1,7 +1,7 @@
 <template>
   <div class="comment-wrapper">
     <div class="comment" v-if="commentData">
-      <comment :commentData="commentData"></comment>
+      <Comment :commentData="commentData"></Comment>
     </div>
     <infinite-loading forceUseInfiniteWrapper=".ant-layout-content" :identifier="infiniteId" @infinite="loadmore" />
   </div>

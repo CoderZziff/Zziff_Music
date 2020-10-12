@@ -32,18 +32,6 @@ Vue.filter('duration', function (duration, type) {
   return `${minute}:${second}`
 })
 
-Vue.filter('formatBrs', function (num) {
-  if (num == 1080) {
-    return '蓝光'
-  } else if (num == 720) {
-    return '超清'
-  } else if (num == 480) {
-    return '高清'
-  } else {
-    return '标清'
-  }
-})
-
 function _pad (num) {
   return num < 10 ? '0' + num : num
 }
