@@ -7,7 +7,6 @@ import 'ant-design-vue/dist/antd.css';
 import './plugins/vue-lazyload'
 import './plugins/infinite-loading'
 import './filters'
-import './directives'
 import './assets/css/index.less'
 import { errorCaptured } from './utils/assist'
 

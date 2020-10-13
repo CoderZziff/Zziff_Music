@@ -36,8 +36,3 @@ function _pad (num) {
   return num < 10 ? '0' + num : num
 }
 
-Vue.filter('normalSize', function (size, type) {
-  if (isNaN(size) || size < 0) return '未知大小'
-  if (type === 'K') return `${(size / 1024).toFixed(2)}k`
-  return `${(size / 1024 / 1024).toFixed(2)}M`
-})
