@@ -3,7 +3,6 @@
  */
 import axios from "axios";
 import QS from "qs";
-import store from '../store'
 import Message from 'ant-design-vue/es/message'
 import Toast from 'components/Toast/toast'
 
@@ -41,40 +40,16 @@ axios.interceptors.response.use(
     if (error.response.status) {
       switch (error.response.status) {
         case 301:
-          store.commit('User/SET_SHOW_LOGIN', true)
-          store.commit('User/SET_USER_INFO', {})
-          store.commit('App/SET_REDIRECT', '/home')
-          localStorage.removeItem('userId')
           Message.warn(res.data.msg || '请先登录')
           break
         case 400:
           Message.warn(res.data.message || res.data.msg || '资源不在收藏列表中')
           break
         case 401:
-          store.commit('User/SET_SHOW_LOGIN', true)
-          store.commit('User/SET_USER_INFO', {})
-          store.commit('App/SET_REDIRECT', '/home')
-          localStorage.removeItem('userId')
           Message.warn(res.data.msg || '请先登录')
           break
-        // 403 token过期
-        // 登录过期对用户进行提示
-        // 清除本地token和清空vuex中token对象
-        // 跳转登录页面
         case 403:
           Message.error(res.data.msg || "权限不足");
-          // 清除token
-          localStorage.removeItem("token");
-          store.commit("loginSuccess", null);
-          // 跳转登录页面，并将要浏览的页面fullPath传过去，登录成功后跳转需要访问的页面
-          setTimeout(() => {
-            router.replace({
-              path: "/login",
-              query: {
-                redirect: router.currentRoute.fullPath
-              }
-            });
-          }, 1000);
           break;
         // 404请求不存在
         case 404:
